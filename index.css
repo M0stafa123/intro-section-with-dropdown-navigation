@@ -1,0 +1,289 @@
+:root {
+  --Almost-White: hsl(0, 0%, 98%);
+  --Medium-Gray: hsl(0, 0%, 41%);
+  --Almost-Black: hsl(0, 0%, 8%);
+}
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+header a,
+main a {
+  text-decoration: none;
+  color: var(--Medium-Gray);
+  border: 1px solid var(--Medium-Gray);
+  padding: 15px;
+  border-radius: 30px;
+  margin: 0 10px;
+}
+body {
+  margin: 0;
+  background-color: var(--Almost-White);
+  font-family: "Epilogue", sans-serif;
+}
+img.open {
+  display: none;
+}
+header,
+main {
+  width: 1440px;
+  margin: auto;
+}
+header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+
+  .login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    color: var(--Medium-Gray);
+    & div:last-of-type {
+      & span:hover {
+        color: var(--Almost-Black);
+        cursor: pointer;
+      }
+      & a:hover {
+        border-color: var(--Almost-Black);
+        color: var(--Almost-Black);
+      }
+    }
+  }
+  & ul {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+    & li {
+      position: relative;
+      color: var(--Medium-Gray);
+      cursor: pointer;
+      &:hover {
+        color: var(--Almost-Black);
+      }
+      &:first-of-type .dropdown {
+        right: 0;
+        width: 130px;
+      }
+      &:nth-of-type(2) .dropdown {
+        left: 0;
+        width: 85px;
+      }
+    }
+  }
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  padding: 0;
+  background-color: white;
+  box-shadow: 0 2px 20px 0 var(--Medium-Gray);
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: content-box;
+  top: 30px;
+  & li {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    margin: 15px 5px;
+    & img {
+      width: 16px;
+    }
+  }
+}
+main {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: end;
+  gap: 40px;
+
+  & div:first-of-type {
+    & h1 {
+      font-size: 85px;
+      margin: 55px 0;
+    }
+    & p {
+      font-size: 18px;
+      color: var(--Medium-Gray);
+      width: 450px;
+      line-height: 1.8;
+    }
+    & a {
+      display: block;
+      width: fit-content;
+      background-color: var(--Almost-Black);
+      color: var(--Almost-White);
+      margin: 60px 0px 140px;
+      padding: 15px 35px;
+      border-radius: 15px;
+      &:hover {
+        background-color: var(--Almost-White);
+        color: var(--Almost-Black);
+      }
+    }
+    .logos {
+      margin-top: 50px;
+      & img {
+        margin: 0 21px;
+      }
+    }
+  }
+  .img {
+    & img {
+      width: 550px;
+    }
+  }
+}
+.mob {
+  display: none;
+}
+.active {
+  .dropdown {
+    display: block;
+  }
+}
+@media (max-width: 1440px) {
+  header,
+  main {
+    width: 80%;
+  }
+  main h1 {
+    font-size: 50px !important;
+  }
+  .img img {
+    width: 300px !important;
+  }
+  .logos {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 15px;
+    & img {
+      margin: 0 !important;
+    }
+  }
+  main div:first-of-type {
+    & p {
+      width: 80%;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .menu .open {
+    display: block;
+  }
+  .mob {
+    display: block;
+  }
+  .desc {
+    display: none;
+  }
+  body {
+    position: relative;
+    height: 100vh;
+  }
+  header {
+    justify-content: space-between;
+  }
+  header > div {
+    z-index: 9999;
+    position: fixed;
+    flex-flow: column;
+    background-color: white;
+    justify-content: start !important;
+    width: 70%;
+    top: 0;
+    right: 0;
+    height: 100%;
+    transition: 0.3s;
+    transform: translateX(100%);
+    & > ul {
+      flex-flow: column;
+      width: 100%;
+      margin-top: 120px;
+      font-size: 20px;
+    }
+    & div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column;
+      gap: 25px;
+      margin-top: 40px;
+      width: 100%;
+      & a {
+        width: 90%;
+        text-align: center;
+        border-radius: 15px;
+      }
+    }
+  }
+  main {
+    flex-flow: column;
+    flex-flow: column-reverse;
+  }
+  .img {
+    & img {
+      max-width: 100% !important;
+    }
+  }
+  main > div:first-of-type {
+    text-align: center;
+    & h1 {
+      font-size: 40px !important;
+      & br {
+        display: none;
+      }
+    }
+
+    & p {
+      width: 100%;
+      font-size: 13px;
+    }
+    & a {
+      margin: auto;
+    }
+    .logos {
+      & img {
+        width: 60px;
+      }
+    }
+  }
+  header .login .dropdown {
+    z-index: 1000;
+    position: relative;
+    top: 4px;
+    left: 10px;
+    box-shadow: none;
+    font-size: 18px;
+    width: 100% !important;
+  }
+  .menu {
+    z-index: 1000000;
+    & img {
+      cursor: pointer;
+    }
+  }
+  .close {
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: black;
+      opacity: 0.8;
+    }
+    .login {
+      transform: translatex(0);
+      position: fixed;
+    }
+  }
+}
