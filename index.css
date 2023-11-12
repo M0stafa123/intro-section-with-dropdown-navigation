@@ -69,7 +69,7 @@ header {
       left: -10px;
     }
     .dropdown:last-of-type {
-      right: 144px;
+      right: 200px;
     }
   }
 }
@@ -149,7 +149,7 @@ main {
 @media (max-width: 1440px) {
   header,
   main {
-    width: 100%;
+    width: 80%;
   }
   main {
     padding: 0px 12px;
@@ -158,7 +158,7 @@ main {
     font-size: 50px !important;
   }
   .img img {
-    width: 320px !important;
+    width: 340px !important;
   }
   .logos {
     display: flex;
@@ -188,9 +188,17 @@ main {
     justify-content: center;
     gap: 5px;
   }
+
+  .dropdown:last-of-type {
+    right: 144px !important;
+  }
 }
 
 @media (max-width: 790px) {
+  header,
+  main {
+    width: 100%;
+  }
   .menu .open {
     display: block;
   }
