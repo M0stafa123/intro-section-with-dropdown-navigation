@@ -20,6 +20,7 @@ body {
   margin: 0;
   background-color: var(--Almost-White);
   font-family: "Epilogue", sans-serif;
+  height: 100vh;
 }
 img.open {
   display: none;
@@ -52,6 +53,7 @@ header {
     }
   }
   & ul {
+    position: relative;
     display: flex;
     gap: 50px;
     list-style: none;
@@ -62,14 +64,12 @@ header {
       &:hover {
         color: var(--Almost-Black);
       }
-      &:first-of-type .dropdown {
-        right: 0;
-        width: 130px;
-      }
-      &:nth-of-type(2) .dropdown {
-        left: 0;
-        width: 85px;
-      }
+    }
+    .dropdown:first-of-type {
+      left: -10px;
+    }
+    .dropdown:last-of-type {
+      right: 144px;
     }
   }
 }
@@ -142,20 +142,23 @@ main {
   display: none;
 }
 .active {
-  .dropdown {
+  & + .dropdown {
     display: block;
   }
 }
 @media (max-width: 1440px) {
   header,
   main {
-    width: 80%;
+    width: 100%;
+  }
+  main {
+    padding: 0px 12px;
   }
   main h1 {
     font-size: 50px !important;
   }
   .img img {
-    width: 300px !important;
+    width: 320px !important;
   }
   .logos {
     display: flex;
@@ -171,9 +174,23 @@ main {
       width: 80%;
     }
   }
+  header ul {
+    gap: 20px;
+  }
+  header .login div {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+  }
+  .drop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 790px) {
   .menu .open {
     display: block;
   }
@@ -185,10 +202,12 @@ main {
   }
   body {
     position: relative;
-    height: 100vh;
   }
   header {
     justify-content: space-between;
+  }
+  .drop {
+    display: block;
   }
   header > div {
     z-index: 9999;
@@ -228,14 +247,19 @@ main {
     flex-flow: column-reverse;
   }
   .img {
+    width: 100%;
     & img {
       max-width: 100% !important;
+      margin: auto;
     }
   }
   main > div:first-of-type {
     text-align: center;
+    padding: 5px;
     & h1 {
-      font-size: 40px !important;
+      font-size: 30px !important;
+      margin: 20px 0;
+
       & br {
         display: none;
       }
@@ -249,6 +273,7 @@ main {
       margin: auto;
     }
     .logos {
+      justify-content: center;
       & img {
         width: 60px;
       }
@@ -257,7 +282,7 @@ main {
   header .login .dropdown {
     z-index: 1000;
     position: relative;
-    top: 4px;
+    top: -21px;
     left: 10px;
     box-shadow: none;
     font-size: 18px;

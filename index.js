@@ -1,4 +1,5 @@
 let drop = document.querySelectorAll(".drop");
+let dropDown = document.querySelector(".dropdown");
 drop.forEach((e) => {
   e.addEventListener("click", function () {
     e.classList.toggle("active");
